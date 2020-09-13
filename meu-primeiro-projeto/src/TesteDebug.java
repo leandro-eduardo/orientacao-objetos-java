@@ -9,7 +9,7 @@ public class TesteDebug {
 		
 		System.out.println("Digite um número: ");
 		int divisor = entrada.nextInt();
-		
+
 		for (int i = 100; i <= 120; i++) {
 			if (i % divisor == 0) {
 				continue;
