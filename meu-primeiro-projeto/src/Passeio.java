@@ -2,8 +2,8 @@
 public class Passeio {
 
 	public static void main(String[] args) {
-		Pessoa p1 = new Pessoa();
-		p1.nome = "Leandro";	
+		Pessoa p1 = new Pessoa("Leandro");
+		//p1.nome = "Leandro";	
 		p1.cachorro = new Cachorro();
 			
 		p1.cachorro.nome = "Bidu";
