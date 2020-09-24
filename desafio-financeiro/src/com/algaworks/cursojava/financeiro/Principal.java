@@ -1,3 +1,7 @@
+package com.algaworks.cursojava.financeiro;
+
+import com.algaworks.cursojava.financeiro.modelo.ContaPagar;
+import com.algaworks.cursojava.financeiro.modelo.Fornecedor;
 
 public class Principal {
 
@@ -18,8 +22,13 @@ public class Principal {
 		
 		ContaPagar conta3 = new ContaPagar("Aluguel da filial", 700d, "11/10/2020", mercado);
 		
+		// pagamento de conta pendente (ok, deve funcionar)
 		conta1.pagar();
+		// tentativa de pagar uma conta cancelada (não deve aceitar pagamento)
+		conta2.cancelar();
 		conta2.pagar();
+		// tentativa de pagar uma conta duas vezes (não deve aceitar na segunda vez)
+		conta3.pagar();
 		conta3.pagar();
 
 	}
