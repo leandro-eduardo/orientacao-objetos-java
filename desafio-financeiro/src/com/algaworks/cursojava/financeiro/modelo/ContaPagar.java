@@ -32,6 +32,19 @@ public class ContaPagar extends Conta {
 		}
 		
 	}
+
+	@Override
+	public void exibirDetalhes() {
+		System.out.println("------------------------------------------------------------");
+		System.out.println("              DETALHAMENTO - CONTA A PAGAR");
+		System.out.println("------------------------------------------------------------");
+		System.out.println("Fornecedor: " + fornecedor.getNome());
+		System.out.println("Descrição: " + descricao);
+		System.out.println("Valor: R$" + valor);
+		System.out.println("Vencimento: " + dataVencimento);
+	}
+	
+	
 	
 	
 	

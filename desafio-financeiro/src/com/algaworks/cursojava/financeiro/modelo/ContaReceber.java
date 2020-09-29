@@ -43,4 +43,14 @@ public class ContaReceber extends Conta {
 		}
 	}
 
+	@Override
+	public void exibirDetalhes() {
+		System.out.println("------------------------------------------------------------");
+		System.out.println("              DETALHAMENTO - CONTA A RECEBER");
+		System.out.println("------------------------------------------------------------");
+		System.out.println("Cliente: " + cliente.getNome());
+		System.out.println("Descrição: " + descricao);
+		System.out.println("Valor: R$" + valor);
+	}
+
 }
