@@ -1,5 +1,7 @@
 package com.algaworks.cursojava.financeiro.modelo;
 
+import com.algaworks.cursojava.financeiro.OperacaoContaException;
+
 public class ContaReceber extends Conta {
 	
 	public ContaReceber() {
@@ -14,10 +16,11 @@ public class ContaReceber extends Conta {
 		
 	}
 	
-	public void receber() {
+	public void receber() throws OperacaoContaException {
 		if(getSituacaoConta() != SituacaoConta.PENDENTE) {
-			System.out.println();
-			System.out.println("Erro: não é possível receber a conta " + descricao + ". Situação da conta: " + situacaoConta + ".");
+			throw new OperacaoContaException("Não é possível receber a conta " + descricao + ". Situação da conta: " + situacaoConta + ".");
+			//System.out.println();
+			//System.out.println("Erro: não é possível receber a conta " + descricao + ". Situação da conta: " + situacaoConta + ".");
 		} else {
 			situacaoConta = SituacaoConta.PAGA;
 			System.out.println();
@@ -34,10 +37,11 @@ public class ContaReceber extends Conta {
 	}
 	
 	@Override
-	public void cancelar() {
+	public void cancelar() throws OperacaoContaException {
 		if (this.getValor() > 50000 && situacaoConta != SituacaoConta.PAGA) {
 			System.out.println();
-			System.out.println("Erro: conta a receber possui valor maior que 50 mil e não pode ser cancelada.");
+			throw new OperacaoContaException("Conta a receber possui valor maior que 50 mil e não pode ser cancelada.");
+			//System.out.println("Erro: conta a receber possui valor maior que 50 mil e não pode ser cancelada.");
 		} else {
 			super.cancelar();
 		}

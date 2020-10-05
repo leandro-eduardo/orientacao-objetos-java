@@ -40,12 +40,37 @@ public class Principal {
 		ContaReceber contaReceber2 = new ContaReceber("Manutenção em Sistema de Conta On-line", 53200d, "13/05/2021", telecom);
 		
 		// pagamento e cancelamento de contas a pagar
-		contaPagar1.pagar();
-		contaPagar2.cancelar();
+		try {
+			contaPagar1.pagar();
+		} catch (OperacaoContaException oce) {
+			System.out.println("Erro: " + oce.getMessage());
+		}
+		
+		try {
+			contaPagar2.cancelar();
+		} catch (OperacaoContaException oce) {
+			System.out.println("Erro: " + oce.getMessage());
+		}
 		
 		// recebimento e cancelamento de contas a receber
-		contaReceber1.receber();
-		contaReceber2.cancelar();
+		try {
+			contaReceber1.receber();
+		} catch (OperacaoContaException oce) {
+			System.out.println("Erro: " + oce.getMessage());
+		}
+		
+		try {
+			contaReceber2.cancelar();
+		} catch (OperacaoContaException oce) {
+			System.out.println("Erro: " + oce.getMessage());
+		}
+		
+		try {
+			contaReceber1.cancelar();
+		} catch (OperacaoContaException oce) {
+			System.out.println("Erro: " + oce.getMessage());
+		}
+
 		
 		System.out.println();
 		System.out.println("//////////////////  RELATÓRIO CONTAS  //////////////////////");

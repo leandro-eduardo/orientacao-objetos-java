@@ -1,5 +1,7 @@
 package com.algaworks.cursojava.financeiro.modelo;
 
+import com.algaworks.cursojava.financeiro.OperacaoContaException;
+
 public class ContaPagar extends Conta {
 	
 	public ContaPagar() {
@@ -14,10 +16,11 @@ public class ContaPagar extends Conta {
 		
 	}
 	
-	public void pagar() {
+	public void pagar() throws OperacaoContaException {
 		if(getSituacaoConta() != SituacaoConta.PENDENTE) {
-			System.out.println();
-			System.out.println("Erro: não é possível pagar a conta " + descricao + ". Situação da conta: " + situacaoConta + ".");
+			throw new OperacaoContaException("Não é possível pagar a conta " + descricao + ". Situação da conta: " + situacaoConta + ".");
+			//System.out.println();
+			//System.out.println("Erro: não é possível pagar a conta " + descricao + ". Situação da conta: " + situacaoConta + ".");
 		} else {
 			situacaoConta = SituacaoConta.PAGA;
 			System.out.println();

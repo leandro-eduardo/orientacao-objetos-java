@@ -1,5 +1,7 @@
 package com.algaworks.cursojava.financeiro.modelo;
 
+import com.algaworks.cursojava.financeiro.OperacaoContaException;
+
 public abstract class Conta {
 	
 	protected String descricao;
@@ -13,10 +15,11 @@ public abstract class Conta {
 		situacaoConta = SituacaoConta.PENDENTE;
 	}
 		
-	public void cancelar() {
+	public void cancelar() throws OperacaoContaException {
 		if (!situacaoConta.equals(SituacaoConta.PENDENTE)) {
 			System.out.println();
-			System.out.println("Erro: não é possível cancelar esta conta. Situação da conta: " + situacaoConta + ".");
+			throw new OperacaoContaException("Não é possível cancelar esta conta. Situação da conta: " + situacaoConta + ".");
+			//System.out.println("Erro: não é possível cancelar esta conta. Situação da conta: " + situacaoConta + ".");
 		} else {
 			situacaoConta = SituacaoConta.CANCELADA;
 			System.out.println();
