@@ -5,6 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Classe utilizada para processar informações sobre os Políticos e Cargos.
+ * 
+ * @author Leandro Eduardo
+ *
+ */
 public class Governo {
 	
 	DecimalFormat formatador = new DecimalFormat("R$ #,##0.00");
@@ -16,6 +22,13 @@ public class Governo {
 		this.partidosPoliticos = new HashMap<String, List<Politico>>();
 	}
 	
+	/**
+	 * Esta classe adiciona um Político em um Partido.
+	 * 
+	 * @param partidoPolitico partido político em que o político será adicionado
+	 * @param politico        político que será adicionado ao partido
+	 * 
+	 */
 	public void adicionarPolitico(String partidoPolitico, Politico politico) {
 		// recupera a lista de políticos para um partido
 		List<Politico> politicos = this.partidosPoliticos.get(partidoPolitico);
@@ -34,6 +47,13 @@ public class Governo {
 		this.partidosPoliticos.put(partidoPolitico, politicos);
 	}
 	
+	/**
+	 * Este método calcula todos os gastos com salários de um determinado Partido Político.
+	 * 
+	 * @param  partidoPolitico partido político para qual os gastos serão calculados
+	 * @return valor total dos gastos com os salários do partido informado
+	 * 
+	 */
 	public BigDecimal calcularGastosComSalarioPorPartido(String partidoPolitico) {
 		List<Politico> politicos = this.partidosPoliticos.get(partidoPolitico);
 		
@@ -45,6 +65,14 @@ public class Governo {
 		return gastosComSalarioPorPartido;
 	}
 	
+	/**
+	 * Este método calcula os gastos com salários de um Partido baseando-se em um determinado Cargo.
+	 * 
+	 * @param cargo           cargo a ser utilizado para o cálculo
+	 * @param partidoPolitico partido político para calcular os gastos
+	 * @return valor total dos gastos do Partido com base no Cargo informado
+	 * 
+	 */
 	public BigDecimal calcularGastosComSalarioPorCargo(Cargo cargo, String partidoPolitico) {
 		List<Politico> politicos = this.partidosPoliticos.get(partidoPolitico);
 		
@@ -58,6 +86,12 @@ public class Governo {
 		return gastosComSalarioPorCargo;
 	}
 	
+	/**
+	 * Este método imprime todos os Políticos de um determinado Partido Político com as seguintes informações: Nome, Cargo e Salário.
+	 * 
+	 * @param  partidoPolitico partido político para qual os políticos serão exibidos
+	 * 
+	 */
 	public void imprimirPoliticos(String partidoPolitico) {
 		List<Politico> politicos = this.partidosPoliticos.get(partidoPolitico);
 		System.out.println("Políticos do partido " + partidoPolitico);
